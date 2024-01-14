@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <a href="./04_read.php">List Page</a><br><br>
+
     <form method= "POST">
         <label for="name">Name</label>
         <input type="text" name="taskName" id="name" placeholder="Enter your Name...">
@@ -22,14 +23,14 @@
         $name = $_POST['taskName'];
 
        if($name == "" || $name == null){
-        echo " <small style='color:red' >Message is requierd!...</small>";
+        echo " <small style='color:red' >Message is required!...</small>";
       
         }else{
             $sql= " INSERT INTO work(name) VALUES ('$name')";
             // if(mysqli_query(connection,query))// 
             if (mysqli_query($connect,$sql)) {
 
-                echo "insert  success...";
+               header ("location:./04_read.php");
             }else {
                 echo " query fail!... ".mysqli_error();
             }
